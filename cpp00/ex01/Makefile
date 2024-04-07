@@ -4,8 +4,11 @@ CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
 
-SRCS	= src/main.cpp 
-OBJS	= $(SRCS:.cpp=.o)
+SRCS	= 	src/main.cpp \
+			src/Contact.cpp \
+			src/PhoneBook.cpp
+OBJS	= $(SRCS:src/%.cpp=$(OBJ_DIR)%.o)
+OBJ_DIR	= obj/
 
 # Colors
 RED		=	\033[91;1m
@@ -22,8 +25,12 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)- - - SUCCESS! - - -$(CLEAR)"
 
+$(OBJ_DIR)%.o: src/%.cpp
+	@mkdir -p $(OBJ_DIR)
+	$(CC) $(FLAGS) -c $< -o $@
+
 clean:
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJ_DIR)
 	@echo "\n\n$(YELLOW)- - - Object files removed. - - -$(CLEAR)"
 
 fclean: clean
