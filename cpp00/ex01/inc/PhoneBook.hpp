@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 01:28:40 by raalonso          #+#    #+#             */
-/*   Updated: 2024/04/07 02:36:45 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/04/07 19:17:36 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ class PhoneBook
 {
 	private:
 		Contact contacts[8];
+		int	count;
 
 	public:
 		void addContact(void);

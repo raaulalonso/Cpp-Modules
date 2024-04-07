@@ -6,13 +6,14 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 01:28:56 by raalonso          #+#    #+#             */
-/*   Updated: 2024/04/07 01:56:19 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/04/07 19:17:58 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 # define CONTACT_H
 # include <string>
+# include <iostream>
 
 class Contact
 {
