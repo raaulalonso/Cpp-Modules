@@ -1,10 +1,10 @@
-NAME	= megaphone
+NAME	= phonebook
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
 RM		= rm -rf
 
-SRCS	= megaphone.cpp
+SRCS	= src/main.cpp 
 OBJS	= $(SRCS:.cpp=.o)
 
 # Colors
