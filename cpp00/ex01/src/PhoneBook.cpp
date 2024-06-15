@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 02:53:58 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/15 03:09:09 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/06/15 16:30:08 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,14 @@ void PhoneBook::addContact(void)
 	
 	this->contacts[count] = new_contact;
 	this->count++;
+	if (num_contacts != 8)
+		this->num_contacts++;
 	cout << "Contact added!\n";
 	
 }
 
 void format(string str)
 {
-	cout << "\nlength : " << str.length() << "\n";
 	if (str.length() > 10)
 		cout << str.substr(0, 9) << ".";
 	else
@@ -83,7 +84,7 @@ void PhoneBook::searchContact(void)
 	int index;
 
 	cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|\n";
-	for (int i = 0; i < ((int)sizeof(this->contacts) / (int)sizeof(this->contacts[0])); i++)
+	for (int i = 0; i < this->num_contacts; i++)
 	{
 		cout << "|         " << i + 1 << "|";
 		format(this->contacts[i].getFirstName());
@@ -97,19 +98,28 @@ void PhoneBook::searchContact(void)
 	getline(cin, aux);
 	if (aux.length() == 1 && aux[0] > '0' && aux[0] < '9')
 	{
-		index = aux[0] - 48;
-		cout << index;
-		// mostrar la informacion del contacto
+		index = (aux[0] - 48 - 1);
+		if (index < this->num_contacts)
+		{
+			cout << "\nFirst name: " << contacts[index].getFirstName();
+			cout << "\nLast name: " << contacts[index].getLastName();
+			cout << "\nNickname: " << contacts[index].getNickname();
+			cout << "\nPhone number: " << contacts[index].getPhoneNumber();
+			cout << "\nDarkest secret: " << contacts[index].getDarkestSecret() << "\n";
+		}
+		else
+			cout << "\nInvalid index :(\n";	
 	}
-	// relevant behabiour.
-}
-
-int PhoneBook::getCount(void)
-{
-	return (this->count);
+	else
+		cout << "\nInvalid index :(\n";
 }
 
 void PhoneBook::setCount(int _count)
 {
 	this->count = _count;
+}
+
+void PhoneBook::setNum_contacts(int _num_contacts)
+{
+	this->num_contacts = _num_contacts;
 }

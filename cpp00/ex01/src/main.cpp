@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 01:27:01 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/15 02:56:35 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/06/15 16:24:44 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int main(void)
 	PhoneBook pb;
 
 	pb.setCount(0);
+	pb.setNum_contacts(0);
 	printMenu();
 	do
 	{
