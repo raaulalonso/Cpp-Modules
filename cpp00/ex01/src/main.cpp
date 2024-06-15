@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 01:27:01 by raalonso          #+#    #+#             */
-/*   Updated: 2024/04/07 19:39:33 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/06/15 02:56:35 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,14 @@ void printMenu(void)
 	cout << "----------------------------------------\n";
 }
 
+// error SEARCH cuando hay caracteres raros
+// deja meter campos solo espacios
 int main(void)
 {
 	string cmd;
 	PhoneBook pb;
 
+	pb.setCount(0);
 	printMenu();
 	do
 	{
@@ -45,7 +48,7 @@ int main(void)
 			pb.addContact();
 		else if (cmd.compare("SEARCH") == 0)
 		{
-			
+			pb.searchContact();
 		}
 		else if (cmd.compare("EXIT") != 0)
 			cout << "Invalid command.\n";
