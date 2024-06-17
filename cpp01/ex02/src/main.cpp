@@ -5,19 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/16 01:30:48 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/17 01:07:54 by raalonso         ###   ########.fr       */
+/*   Created: 2024/06/17 01:11:25 by raalonso          #+#    #+#             */
+/*   Updated: 2024/06/17 01:29:15 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Zombie.hpp"
+#include <iostream>
 
-int	main(void)
+int main(void)
 {
-	Zombie *new_zombie = newZombie("New Zombie");
+	std::string str = "HI THIS IS BRAIN";
+	std::string *stringPTR = &str;
+	std::string &stringREF = str;
 
-	new_zombie->announce();
-	randomChump("Random Chump");
-	delete new_zombie;
-	return (0);
+	std::cout << "Memory address of string variable: " << &str;
+	std::cout << "\nMemory address held by the pointer: " << stringPTR;
+	std::cout << "\nMemory address held by stringREF: " << &stringREF;
+
+	std::cout << "\nValue of the string variable: " << str;
+	std::cout << "\nValue pointed to by stringPTR: " << *stringPTR;
+	std::cout << "\nValue pointed to by stringREF: " << stringREF << "\n";
 }

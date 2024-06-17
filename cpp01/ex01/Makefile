@@ -1,4 +1,4 @@
-NAME	= zombie
+NAME	= zombieHorde
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -6,8 +6,7 @@ RM		= rm -rf
 
 SRCS	= 	src/main.cpp \
 			src/Zombie.cpp \
-			src/newZombie.cpp \
-			src/randomChump.cpp
+			src/zombieHorde.cpp
 OBJS	= $(SRCS:src/%.cpp=$(OBJ_DIR)%.o)
 OBJ_DIR	= obj/
 
