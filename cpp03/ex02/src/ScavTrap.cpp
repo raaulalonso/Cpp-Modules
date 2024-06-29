@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 02:07:20 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/29 02:35:08 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/06/29 03:00:27 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void ScavTrap::beRepaired(unsigned int amount)
 	if (this->energyPoints > 0)
 	{
 		std::cout << "ScavTrap " << this->name << " repairs " << amount << " points!\n";
+		this->hitPoints += amount;
 		this->energyPoints--;
 	}
 	else

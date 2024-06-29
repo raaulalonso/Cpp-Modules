@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 17:40:21 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/29 02:14:13 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/06/29 02:59:33 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &c)
 
 void ClapTrap::attack(const std::string& target)
 {
-	if (energyPoints > 0)
+	if (this->energyPoints > 0)
 	{
 		std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!\n";
-		energyPoints--;
+		this->energyPoints--;
 	}
 	else
 		std::cout << "Not enough energy points to attack.\n";
@@ -63,17 +63,18 @@ void ClapTrap::attack(const std::string& target)
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage!\n";
-	hitPoints -= amount;
-	if (hitPoints <= 0)
+	this->hitPoints -= amount;
+	if (this->hitPoints <= 0)
 		std::cout << "ClapTrap " << this->name << " dies.\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (energyPoints > 0)
+	if (this->energyPoints > 0)
 	{
 		std::cout << "ClapTrap " << this->name << " repairs " << amount << " points!\n";
-		energyPoints--;
+		this->hitPoints += amount;
+		this->energyPoints--;
 	}
 	else
 		std::cout << "Not enough energy points to repair.\n";
