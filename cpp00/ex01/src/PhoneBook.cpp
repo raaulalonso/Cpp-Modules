@@ -6,112 +6,125 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 02:53:58 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/15 16:30:08 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/08/23 12:38:32 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/PhoneBook.hpp"
 
-using std::cout;
-using std::cin;
-using std::string;
+bool emptycheck(std::string str)
+{
+	size_t count = 0;
+
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (isspace(str[i]))
+			count++;
+	}
+	if (count == str.length())
+	{
+		std::cout << "Empty fields are not allowed!\n";
+		return (true);
+	}
+	return (false);
+}
 
 void PhoneBook::addContact(void)
 {
 	Contact new_contact;
-	string aux;
+	std::string aux;
 	
 	if (count == 8)
 		count = 0;
 	do
 	{
-		cout << "First name: ";
-		getline(cin, aux);
+		std::cout << "First name: ";
+		getline(std::cin, aux);
 		new_contact.setFirstName(aux);
-	} while (new_contact.getFirstName().length() == 0);
+	} while (new_contact.getFirstName().length() == 0 || emptycheck(new_contact.getFirstName()));
 
 	do
 	{
-		cout << "Last name: ";
-		getline(cin, aux);
+		std::cout << "Last name: ";
+		getline(std::cin, aux);
 		new_contact.setLastName(aux);
-	} while (new_contact.getLastName().length() == 0);
+	} while (new_contact.getLastName().length() == 0 || emptycheck(new_contact.getLastName()));
 	
 	do
 	{
-		cout << "Nickname: ";
-		getline(cin, aux);
+		std::cout << "Nickname: ";
+		getline(std::cin, aux);
 		new_contact.setNickname(aux);
-	} while (new_contact.getNickname().length() == 0);
+	} while (new_contact.getNickname().length() == 0|| emptycheck(new_contact.getNickname()));
 
 	do
 	{
-		cout << "Phone number: ";
-		getline(cin, aux);
+		std::cout << "Phone number: ";
+		getline(std::cin, aux);
 		new_contact.setPhoneNumber(aux);
-	} while (new_contact.getPhoneNumber().length() == 0);
+	} while (new_contact.getPhoneNumber().length() == 0|| emptycheck(new_contact.getPhoneNumber()));
 
 	do
 	{
-		cout << "Darkest secret: ";
-		getline(cin, aux);
+		std::cout << "Darkest secret: ";
+		getline(std::cin, aux);
 		new_contact.setDarkestSecret(aux);
-	} while (new_contact.getDarkestSecret().length() == 0);
+	} while (new_contact.getDarkestSecret().length() == 0 || emptycheck(new_contact.getDarkestSecret()));
 	
 	this->contacts[count] = new_contact;
 	this->count++;
 	if (num_contacts != 8)
 		this->num_contacts++;
-	cout << "Contact added!\n";
+	std::cout << "Contact added!\n";
 	
 }
 
-void format(string str)
+void format(std::string str)
 {
 	if (str.length() > 10)
-		cout << str.substr(0, 9) << ".";
+		std::cout << str.substr(0, 9) << ".";
 	else
 	{
 		for (size_t i = 0; i < 10 - str.length(); i++)
-			cout << " ";
-		cout << str;
+			std::cout << " ";
+		std::cout << str;
 	}
 }
 
 void PhoneBook::searchContact(void)
 {
-	string aux;
+	std::string aux;
 	int index;
 
-	cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|\n";
+	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|\n";
 	for (int i = 0; i < this->num_contacts; i++)
 	{
-		cout << "|         " << i + 1 << "|";
+		std::cout << "|         " << i + 1 << "|";
 		format(this->contacts[i].getFirstName());
-		cout << "|";
+		std::cout << "|";
 		format(this->contacts[i].getLastName());
-		cout << "|";
+		std::cout << "|";
 		format(this->contacts[i].getNickname());
-		cout << "|\n";
+		std::cout << "|\n";
 	}
-	cout << "\nIndex of the entry to display >>> ";
-	getline(cin, aux);
+	std::cout << "\nIndex of the entry to display >>> ";
+	getline(std::cin, aux);
 	if (aux.length() == 1 && aux[0] > '0' && aux[0] < '9')
 	{
 		index = (aux[0] - 48 - 1);
 		if (index < this->num_contacts)
 		{
-			cout << "\nFirst name: " << contacts[index].getFirstName();
-			cout << "\nLast name: " << contacts[index].getLastName();
-			cout << "\nNickname: " << contacts[index].getNickname();
-			cout << "\nPhone number: " << contacts[index].getPhoneNumber();
-			cout << "\nDarkest secret: " << contacts[index].getDarkestSecret() << "\n";
+			std::cout << "\nFirst name: " << contacts[index].getFirstName();
+			std::cout << "\nLast name: " << contacts[index].getLastName();
+			std::cout << "\nNickname: " << contacts[index].getNickname();
+			std::cout << "\nPhone number: " << contacts[index].getPhoneNumber();
+			std::cout << "\nDarkest secret: " << contacts[index].getDarkestSecret() << "\n";
 		}
 		else
-			cout << "\nInvalid index :(\n";	
+			std::cout << "\nInvalid index :(\n";	
 	}
 	else
-		cout << "\nInvalid index :(\n";
+		std::cout << "\nInvalid index :(\n";
 }
 
 void PhoneBook::setCount(int _count)

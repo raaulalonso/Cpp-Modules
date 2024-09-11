@@ -30,4 +30,6 @@ fclean: clean
 	@$(RM) $(NAME)
 	@echo "$(YELLOW)- - - Executable removed. - - -$(CLEAR)"
 
+re: fclean all
+
 .PHONY: all clean fclean re
