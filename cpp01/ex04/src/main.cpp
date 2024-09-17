@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 01:06:40 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/18 03:02:42 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/09/17 19:06:52 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int main(int argc, char **argv)
 		return (1);
 	}
 	while (infile >> std::noskipws >> c) // std::noskipws to not skip white spaces while reading.
-		content += c;
-	outfile.open(argv[1] + (std::string)".replace");
+		content += c; //CHANGE NO CHARACTER BY CHARACTER IS NOT C ANYMORE
+	outfile.open((argv[1] + (std::string)".replace").c_str());
 	
 	int pos = 0;
 	for (int i = 0; i < (int)content.size(); i++)
