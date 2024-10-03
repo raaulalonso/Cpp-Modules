@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 01:42:53 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/28 01:47:00 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/03 21:21:08 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,7 @@ Fixed &Fixed::operator=(const Fixed &f)
 {
 	std::cout << "Copy assignment operator called\n";
 	if (this != &f)
-	{
-        value = f.value;
-    }
+        this->value = f.value;
 	return *this;
 }
 
@@ -72,27 +70,27 @@ bool Fixed::operator>(const Fixed &f)
 
 bool Fixed::operator<(const Fixed &f)
 {
-	return (this->getRawBits() > f.getRawBits());
+	return (this->getRawBits() < f.getRawBits());
 }
 
 bool Fixed::operator>=(const Fixed &f)
 {
-	return (this->getRawBits() > f.getRawBits());
+	return (this->getRawBits() >= f.getRawBits());
 }
 
 bool Fixed::operator<=(const Fixed &f)
 {
-	return (this->getRawBits() > f.getRawBits());
+	return (this->getRawBits() <= f.getRawBits());
 }
 
 bool Fixed::operator==(const Fixed &f)
 {
-	return (this->getRawBits() > f.getRawBits());
+	return (this->getRawBits() == f.getRawBits());
 }
 
 bool Fixed::operator!=(const Fixed &f)
 {
-	return (this->getRawBits() > f.getRawBits());
+	return (this->getRawBits() != f.getRawBits());
 }
 
 Fixed Fixed::operator+(const Fixed &f)
@@ -114,6 +112,40 @@ Fixed Fixed::operator/(const Fixed &f)
 {
 	return (Fixed(this->toFloat() / f.toFloat()));
 }
+
+/*Fixed &Fixed::operator++()
+{
+	float n = this->toFloat();
+	n++;
+	this->value = Fixed(n).getRawBits();
+	return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed temp(*this);
+	float n = this->toFloat();
+	n++;
+	this->value = Fixed(n).getRawBits();
+	return temp;
+}
+
+Fixed &Fixed::operator--()
+{
+	float n = this->toFloat();
+	n--;
+	this->value = Fixed(n).getRawBits();
+	return *this;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed temp(*this);
+	float n = this->toFloat();
+	n--;
+	this->value = Fixed(n).getRawBits();
+	return temp;
+}*/
 
 Fixed &Fixed::operator++()
 {
@@ -159,7 +191,7 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-	return static_cast<float>(value) / (1 << nFracBits);
+	return (float)(value) / (1 << nFracBits);
 }
 
 int Fixed::toInt(void) const

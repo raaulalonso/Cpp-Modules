@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 01:42:53 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/28 02:41:03 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/03 20:57:04 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ Fixed::Fixed(const Fixed &f)
 Fixed &Fixed::operator=(const Fixed &f)
 {
 	if (this != &f)
-	{
-        value = f.value;
-    }
+        this->value = f.value;
 	return *this;
 }
 
