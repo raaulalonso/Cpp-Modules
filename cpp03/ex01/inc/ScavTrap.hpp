@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 02:06:29 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/29 02:31:14 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:23:27 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ class ScavTrap: public ClapTrap
 		~ScavTrap(void);
 
 		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
 		void guardGate(void);
 };
 

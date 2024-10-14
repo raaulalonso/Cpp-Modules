@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 02:48:53 by raalonso          #+#    #+#             */
-/*   Updated: 2024/07/02 02:39:34 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:39:54 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ class FragTrap: virtual public ClapTrap
 		~FragTrap(void);
 
 		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
 		void highFivesGuys(void);
 };
 

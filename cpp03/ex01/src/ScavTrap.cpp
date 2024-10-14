@@ -6,11 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 02:07:20 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/29 03:00:08 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:33:47 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ScavTrap.hpp"
+
+ScavTrap::ScavTrap(void) {}
 
 ScavTrap::ScavTrap(std::string _name): ClapTrap(_name)
 {
@@ -29,8 +31,12 @@ void ScavTrap::attack(const std::string& target)
 {
 	if (this->energyPoints > 0)
 	{
-		std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!\n";
-		this->energyPoints--;
+		if (this->hitPoints > 0) {
+			std::cout << "ScavTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!\n";
+			this->energyPoints--;
+		}
+		else
+			std::cout << "ScavTrap " << this->name << " can not attack, is dead.\n";
 	}
 	else
 		std::cout << "Not enough energy points to attack.\n";
@@ -39,24 +45,4 @@ void ScavTrap::attack(const std::string& target)
 void ScavTrap::guardGate(void)
 {
 	std::cout << "ScavTrap " << this->name << " is in Gate keeper mode.\n";
-}
-
-void ScavTrap::takeDamage(unsigned int amount)
-{
-	std::cout << "ScavTrap " << this->name << " takes " << amount << " points of damage!\n";
-	hitPoints -= amount;
-	if (hitPoints <= 0)
-		std::cout << "ScavTrap " << this->name << " dies.\n";
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	if (this->energyPoints > 0)
-	{
-		std::cout << "ScavTrap " << this->name << " repairs " << amount << " points!\n";
-		this->hitPoints += amount;
-		this->energyPoints--;
-	}
-	else
-		std::cout << "Not enough energy points to repair.\n";
 }

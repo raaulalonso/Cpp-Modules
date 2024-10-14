@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 02:07:20 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/29 17:07:33 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:40:19 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,4 @@ void ScavTrap::attack(const std::string& target)
 void ScavTrap::guardGate(void)
 {
 	std::cout << "ScavTrap " << this->name << " is in Gate keeper mode.\n";
-}
-
-void ScavTrap::takeDamage(unsigned int amount)
-{
-	std::cout << "ScavTrap " << this->name << " takes " << amount << " points of damage!\n";
-	hitPoints -= amount;
-	if (hitPoints <= 0)
-		std::cout << "ScavTrap " << this->name << " dies.\n";
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	if (this->energyPoints > 0)
-	{
-		std::cout << "ScavTrap " << this->name << " repairs " << amount << " points!\n";
-		this->hitPoints += amount;
-		this->energyPoints--;
-	}
-	else
-		std::cout << "Not enough energy points to repair.\n";
 }

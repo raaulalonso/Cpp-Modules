@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 17:40:02 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/29 02:32:39 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:26:19 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int main(void)
 	c.attack("Pedro");
 	s.takeDamage(0);
 	s.attack("Raul");
+	s.beRepaired(2);
 	c.takeDamage(20);
 }

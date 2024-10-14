@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 17:40:34 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/29 02:13:58 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:32:23 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ClapTrap
 		int hitPoints;
 		int energyPoints;
 		int attackDamage;
-
+		
 		ClapTrap(void);
 		
 	public:

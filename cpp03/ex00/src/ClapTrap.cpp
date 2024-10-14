@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 17:40:21 by raalonso          #+#    #+#             */
-/*   Updated: 2024/06/29 02:59:33 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/14 19:15:57 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,12 @@ void ClapTrap::attack(const std::string& target)
 {
 	if (this->energyPoints > 0)
 	{
+		if (this->hitPoints > 0) {
 		std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->attackDamage << " points of damage!\n";
 		this->energyPoints--;
+		}
+		else
+			std::cout << "ClapTrap " << this->name << " can not attack, is dead.\n";
 	}
 	else
 		std::cout << "Not enough energy points to attack.\n";
@@ -62,19 +66,27 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage!\n";
-	this->hitPoints -= amount;
 	if (this->hitPoints <= 0)
-		std::cout << "ClapTrap " << this->name << " dies.\n";
+		std::cout << "ClapTrap " << this->name << " is already dead.\n";
+	else {
+		std::cout << "ClapTrap " << this->name << " takes " << amount << " points of damage!\n";
+		this->hitPoints -= amount;
+		if (this->hitPoints <= 0)
+			std::cout << "ClapTrap " << this->name << " dies.\n";
+	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->energyPoints > 0)
 	{
-		std::cout << "ClapTrap " << this->name << " repairs " << amount << " points!\n";
-		this->hitPoints += amount;
-		this->energyPoints--;
+		if (this->hitPoints > 0) {
+			std::cout << "ClapTrap " << this->name << " repairs " << amount << " points!\n";
+			this->hitPoints += amount;
+			this->energyPoints--;
+		}
+		else 
+			std::cout << "ClapTrap " << this->name << " can not be repaired, is dead.\n";
 	}
 	else
 		std::cout << "Not enough energy points to repair.\n";
