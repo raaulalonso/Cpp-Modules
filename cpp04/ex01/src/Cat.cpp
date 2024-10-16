@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:05:50 by raalonso          #+#    #+#             */
-/*   Updated: 2024/10/16 19:53:43 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/16 20:11:18 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Cat::Cat(void) {
 
 Cat::Cat(const Cat &c) {
 	std::cout << "Cat copy constructor called.\n";
+	this->brain = new Brain(*c.brain);
 	this->type = c.type;
 }
 

@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:05:54 by raalonso          #+#    #+#             */
-/*   Updated: 2024/10/16 19:55:30 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/16 20:11:56 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ int main()
 	for (int i = 0; i < 100; i++) {
 		delete animales[i];
 	}
+	std::cout << "////////////////////////  PRUEBA DE PROFUNDIDAD DE COPIA  ////////////////////////\n";
+	Dog basic;
+	Dog tmp = basic;
 
 	return 0;
 }

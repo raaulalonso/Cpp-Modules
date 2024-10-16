@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:05:48 by raalonso          #+#    #+#             */
-/*   Updated: 2024/10/16 19:53:41 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/16 20:11:05 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Dog::Dog(void) {
 
 Dog::Dog(const Dog &d) {
 	std::cout << "Dog copy constructor called.\n";
+	this->brain = new Brain(*d.brain);
 	this->type = d.type;
 }
 
