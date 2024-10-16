@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 01:43:04 by raalonso          #+#    #+#             */
-/*   Updated: 2024/10/16 19:12:24 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/16 19:57:14 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Brain
 		~Brain(void);
 		
 		Brain &operator=(const Brain &other);
+		std::string *getIdeas(void);
 };
 
 #endif

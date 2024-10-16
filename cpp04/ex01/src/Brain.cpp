@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 19:12:36 by raalonso          #+#    #+#             */
-/*   Updated: 2024/10/16 19:31:30 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/16 19:57:18 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,8 @@ Brain &Brain::operator=(const Brain &other) {
 	}
 	return *this;
 }
+
+std::string *Brain::getIdeas(void) {
+	return (this->ideas);
+}
+

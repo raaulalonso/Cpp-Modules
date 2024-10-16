@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 18:05:48 by raalonso          #+#    #+#             */
-/*   Updated: 2024/10/16 19:17:59 by raalonso         ###   ########.fr       */
+/*   Updated: 2024/10/16 19:53:41 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,4 @@ Dog::~Dog(void) {
 void Dog::makeSound(void) const {
 	std::cout << "WOW\n";
 }
+
