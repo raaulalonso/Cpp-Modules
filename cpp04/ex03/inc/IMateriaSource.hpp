@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 18:05:54 by raalonso          #+#    #+#             */
-/*   Updated: 2024/10/17 09:09:16 by raalonso         ###   ########.fr       */
+/*   Created: 2024/10/17 08:59:09 by raalonso          #+#    #+#             */
+/*   Updated: 2024/10/17 09:00:12 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Animal.hpp"
-#include "../inc/Dog.hpp"
-#include "../inc/Cat.hpp"
+#ifndef IMATERIASOURCE_H
+# define IMATERIASOURCE_H
+# include <iostream>
+# include "AMateria.hpp"
 
-int main()
+class IMateriaSource
 {
-	//Animal a; // Error because it is abstract and can not be instanced.
-	Animal *a;
+	public:
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
+};
 
-	a = new Dog();
-	a->makeSound();
-	delete a;
-	
-	return 0;
-}
+#endif
